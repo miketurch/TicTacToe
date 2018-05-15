@@ -1,9 +1,13 @@
 ﻿namespace TurchinovichZhuk.Nsudotnet.TicTacToe.Model
 {
-	enum Cell
+	class Cell
 	{
-		X,
-		O,
-		None
-	};
+		private CellState _cellState = CellState.None;
+
+		public CellState CellState
+		{
+			get { return _cellState; }
+			set { _cellState = value; }
+		}
+	}
 }

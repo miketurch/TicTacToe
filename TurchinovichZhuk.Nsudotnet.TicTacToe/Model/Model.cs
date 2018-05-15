@@ -1,0 +1,30 @@
+﻿namespace TurchinovichZhuk.Nsudotnet.TicTacToe.Model
+{
+	class Model
+	{
+		private BigField _bigField;
+
+		public BigField BigField
+		{
+			get { return _bigField; }
+			set { _bigField = value; }
+		}
+
+		public void Init()
+		{
+			SmallField[] smallFields = new SmallField[9];
+			for (int i = 0; i < 9; i++)
+			{
+				Cell[] cells = new Cell[9];
+				for (int j = 0; j < 9; j++)
+				{
+					cells[j] =  new Cell();
+				}
+				SmallField smallField = new SmallField(cells);
+				smallFields[i] = smallField;
+			}
+			_bigField = new BigField(smallFields);
+		}
+
+	}
+}
