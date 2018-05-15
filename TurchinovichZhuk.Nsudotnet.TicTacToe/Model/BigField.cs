@@ -2,18 +2,11 @@
 {
 	class BigField
 	{
-		private SmallField[] _smallFields;
-
-		public SmallField[] SmallFields
-		{
-			get { return _smallFields; }
-			set { _smallFields = value; }
-		}
+		public SmallField[] SmallFields { get; set; }
 
 		public BigField(SmallField[] smallFields)
 		{
-			_smallFields = smallFields;
+			SmallFields = smallFields;
 		}
-
 	}
 }

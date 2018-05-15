@@ -26,5 +26,15 @@
 			_bigField = new BigField(smallFields);
 		}
 
+		private CellState[] GetField()
+		{
+			CellState[] cellStates = new CellState[81];
+			for (int i = 0; i < 81; i++)
+			{
+				cellStates[i] = _bigField.SmallFields[i / 9].Cells[i % 9].CellState;
+			}
+			return cellStates;
+		}
+
 	}
 }

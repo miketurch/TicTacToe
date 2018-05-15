@@ -5,7 +5,7 @@ namespace TurchinovichZhuk.Nsudotnet.TicTacToe.Controller
 {
 	class Controller
 	{
-		private Model.Model _model;
+		private readonly Model.Model _model;
 
 		private bool _xStep = true;
 
@@ -64,7 +64,8 @@ namespace TurchinovichZhuk.Nsudotnet.TicTacToe.Controller
 						return WinGame;
 					}
 
-					// Если выиграл маленькое поле, по smallFieldNumber можешь узнать, какие клетки нужно закрасить.
+					// Если выиграл маленькое поле, по smallFieldNumber можешь узнать, какие клетки нужно закрасить. 
+					// А по _xStep - чей ход был (для цвета).
 					return WinSmallField;
 				}
 			}
