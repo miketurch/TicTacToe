@@ -49,8 +49,6 @@ namespace TurchinovichZhuk.Nsudotnet.TicTacToe.Controller
 			}
 
 			_model.BigField.SmallFields[smallFieldNumber].Cells[cellNumber].CellState = _xStep ? CellState.X : CellState.O;
-			_xStep = !_xStep;
-
 			_model.BigField.SmallFields[smallFieldNumber].Full = _model.BigField.SmallFields[smallFieldNumber].IsFull();
 
 			// Если в этом поле уже выиграли, то не надо проверять условия на победу
@@ -69,6 +67,8 @@ namespace TurchinovichZhuk.Nsudotnet.TicTacToe.Controller
 					return WinSmallField;
 				}
 			}
+
+			_xStep = !_xStep;
 
 			// Ход прошел успешно. Нет ни побед, ни ошибок
 			return Ok;
