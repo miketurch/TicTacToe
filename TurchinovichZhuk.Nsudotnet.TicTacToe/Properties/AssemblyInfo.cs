@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Управление общими сведениями о сборке осуществляется с помощью 
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
-[assembly: AssemblyTitle("TicTacToe")]
+[assembly: AssemblyTitle("TurchinovichZhuk.Nsudotnet.TicTacToe")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("TicTacToe")]
+[assembly: AssemblyProduct("TurchinovichZhuk.Nsudotnet.TicTacToe")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
-[assembly: Guid("b1b486d2-d0bc-468a-a054-16bf34e33f98")]
+[assembly: Guid("357c6d4d-486c-4d9c-a111-4fc9d62f443b")]
 
 // Сведения о версии сборки состоят из следующих четырех значений:
 //

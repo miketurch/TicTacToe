@@ -3,15 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TicTacToe.model;
 
-namespace TicTacToe
+namespace TurchinovichZhuk.Nsudotnet.TicTacToe.Model
 {
-	class Program
+	class BigField
 	{
-		static void Main(string[] args)
-		{
-		
-		}
 	}
 }
