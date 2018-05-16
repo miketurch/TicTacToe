@@ -6,6 +6,7 @@ namespace TurchinovichZhuk.Nsudotnet.TicTacToe.Controller
 	class Controller
 	{
 		private readonly Model.Model _model;
+		private readonly View.ConsoleView _view;
 
 		private bool _xStep = true;
 
@@ -21,9 +22,20 @@ namespace TurchinovichZhuk.Nsudotnet.TicTacToe.Controller
 		private const int WinGame = 5;
 
 		private int _lastStep = -1;
-		public Controller(Model.Model model)
+		public Controller(Model.Model model, View.ConsoleView view)
 		{
 			_model = model;
+			_view = view;
+		}
+
+		public void StartGame()
+		{
+			_winner = 0;
+			while (_winner == 0)
+			{
+				int[] steps = _view.GetSteps();
+			}
+			
 		}
 
 		public int MakeStep(int smallFieldNumber, int cellNumber)
