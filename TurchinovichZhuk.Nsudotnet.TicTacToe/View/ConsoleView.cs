@@ -34,7 +34,7 @@ namespace TurchinovichZhuk.Nsudotnet.TicTacToe.View
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Wrong format, lets try again!");
-                steps = GetStep();
+                steps = GetSteps();
             }
             return steps;
         }
