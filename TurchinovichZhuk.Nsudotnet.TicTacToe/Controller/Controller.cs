@@ -28,7 +28,7 @@ namespace TurchinovichZhuk.Nsudotnet.TicTacToe.Controller
 
 		public int MakeStep(int smallFieldNumber, int cellNumber)
 		{
-			if (!_lastStep.Equals(smallFieldNumber) && !_model.BigField.SmallFields[smallFieldNumber].Full && !_lastStep.Equals(-1))
+			if (!_lastStep.Equals(smallFieldNumber) && !_model.BigField.SmallFields[_lastStep].Full && !_lastStep.Equals(-1))
 			{
 				// Если ходит в маленькое поле, в которое не должен ходить
 				return WrongSmallField; 
