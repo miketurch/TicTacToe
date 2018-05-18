@@ -26,7 +26,7 @@
 			_bigField = new BigField(smallFields);
 		}
 
-		private CellState[] GetField()
+		public CellState[] GetField()
 		{
 			CellState[] cellStates = new CellState[81];
 			for (int i = 0; i < 81; i++)

@@ -1,9 +1,9 @@
 ﻿namespace TurchinovichZhuk.Nsudotnet.TicTacToe.Model
 {
-	enum CellState
+	public enum CellState
 	{
 		X,
 		O,
 		None
-	};
+	}
 }

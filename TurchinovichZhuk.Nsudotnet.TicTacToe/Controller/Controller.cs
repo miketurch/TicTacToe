@@ -22,6 +22,7 @@ namespace TurchinovichZhuk.Nsudotnet.TicTacToe.Controller
 		private const int WinGame = 5;
 
 		private int _lastStep = -1;
+		private int _littlePoint = -1;
 		public Controller(Model.Model model, View.ConsoleView view)
 		{
 			_model = model;
@@ -30,23 +31,52 @@ namespace TurchinovichZhuk.Nsudotnet.TicTacToe.Controller
 
 		public void StartGame()
 		{
+			_view.SetField(_model.GetField());
+			_view.ShowRules();
+			_view.PrintField();
 			_winner = 0;
 			while (_winner == 0)
 			{
 				int[] steps = _view.GetSteps();
+				int result = MakeStep(steps[0], steps[1]);
+				if (result == WrongSmallField)
+				{
+					_view.WrongFieldMessage();
+					continue;
+				}
+				if (result == BusyCell)
+				{
+					_view.BusyCellMessage();
+					continue;
+				}
+				if (result == FullField)
+				{
+					_view.WrongFieldMessage();
+					continue;
+				}
+
+				if (result == WinSmallField || result == WinGame)
+				{
+					_view.SetLittleWinner(_xStep, _littlePoint);
+				}
+				_view.SetField(_model.GetField());
+				_view.PrintField();
+				if (result == WinGame)
+				{
+					_view.Win(_xStep);
+					break;
+				}
 			}
 			
 		}
-
+	
 		public int MakeStep(int smallFieldNumber, int cellNumber)
 		{
-			if (!_lastStep.Equals(smallFieldNumber) && !_model.BigField.SmallFields[_lastStep].Full && !_lastStep.Equals(-1))
+			if (!_lastStep.Equals(smallFieldNumber) && !_lastStep.Equals(-1) && !_model.BigField.SmallFields[_lastStep].Full)
 			{
 				// Если ходит в маленькое поле, в которое не должен ходить
 				return WrongSmallField; 
 			}
-
-			_lastStep = cellNumber;
 
 			if (_model.BigField.SmallFields[smallFieldNumber].Full)
 			{
@@ -59,6 +89,8 @@ namespace TurchinovichZhuk.Nsudotnet.TicTacToe.Controller
 				// Эта клетка занята
 				return BusyCell;
 			}
+			
+			_lastStep = cellNumber;
 
 			_model.BigField.SmallFields[smallFieldNumber].Cells[cellNumber].CellState = _xStep ? CellState.X : CellState.O;
 			_model.BigField.SmallFields[smallFieldNumber].Full = _model.BigField.SmallFields[smallFieldNumber].IsFull();
@@ -71,11 +103,13 @@ namespace TurchinovichZhuk.Nsudotnet.TicTacToe.Controller
 					if (IsWin())
 					{
 						// Если выиграл всю игру. В поле _winner - победитель игры.
+						_littlePoint = smallFieldNumber;
 						return WinGame;
 					}
 
 					// Если выиграл маленькое поле, по smallFieldNumber можешь узнать, какие клетки нужно закрасить. 
 					// А по _xStep - чей ход был (для цвета).
+					_littlePoint = smallFieldNumber;
 					return WinSmallField;
 				}
 			}
