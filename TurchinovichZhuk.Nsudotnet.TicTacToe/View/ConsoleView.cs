@@ -116,7 +116,7 @@ namespace TurchinovichZhuk.Nsudotnet.TicTacToe.View
         public void WrongFieldMessage()
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("You can`t go this field!");11
+            Console.WriteLine("You can`t go this field!");
         }
         
         public void BusyCellMessage()

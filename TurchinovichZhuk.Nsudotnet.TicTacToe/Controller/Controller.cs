@@ -58,7 +58,7 @@ namespace TurchinovichZhuk.Nsudotnet.TicTacToe.Controller
 				
 				if (result == WinSmallField || result == WinGame)
 				{
-					_view.SetLittleWinner(_xStep, _littlePoint);
+					_view.SetLittleWinner(!_xStep, _littlePoint);// not _xStep cause its current player but we need previous there!!
 				}
 				_view.SetField(_model.GetField());
 				_view.PrintField();
@@ -110,6 +110,7 @@ namespace TurchinovichZhuk.Nsudotnet.TicTacToe.Controller
 					{
 						// Если выиграл всю игру. В поле _winner - победитель игры.
 						_littlePoint = smallFieldNumber;
+						_xStep = !_xStep;
 						return WinGame;
 					}
 
