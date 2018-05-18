@@ -116,13 +116,13 @@ namespace TurchinovichZhuk.Nsudotnet.TicTacToe.View
         public void WrongFieldMessage()
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("You can`t go this field!");
+            Console.WriteLine("You can`t go this field!");11
         }
         
         public void BusyCellMessage()
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("You can`t use this cell");
+            Console.WriteLine("You can`t use this cell!");
         }
 
         public void Win(bool isX)
@@ -135,7 +135,7 @@ namespace TurchinovichZhuk.Nsudotnet.TicTacToe.View
         public void Lose()
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Game over");
+            Console.WriteLine("Game over!");
         }
     }
 }

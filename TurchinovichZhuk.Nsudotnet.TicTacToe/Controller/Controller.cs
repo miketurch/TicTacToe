@@ -97,7 +97,6 @@ namespace TurchinovichZhuk.Nsudotnet.TicTacToe.Controller
 			}
 			
 			_lastStep = cellNumber;
-			_xStep = !_xStep;
 
 			_model.BigField.SmallFields[smallFieldNumber].Cells[cellNumber].CellState = _xStep ? CellState.X : CellState.O;
 			_model.BigField.SmallFields[smallFieldNumber].Full = _model.BigField.SmallFields[smallFieldNumber].IsFull();
@@ -117,6 +116,7 @@ namespace TurchinovichZhuk.Nsudotnet.TicTacToe.Controller
 					// Если выиграл маленькое поле, по smallFieldNumber можешь узнать, какие клетки нужно закрасить. 
 					// А по _xStep - чей ход был (для цвета).
 					_littlePoint = smallFieldNumber;
+					_xStep = !_xStep;
 					return WinSmallField;
 				}
 			}
@@ -127,6 +127,7 @@ namespace TurchinovichZhuk.Nsudotnet.TicTacToe.Controller
 			}
 
 			// Ход прошел успешно. Нет ни побед, ни ошибок
+			_xStep = !_xStep;
 			return Ok;
 		}
 
