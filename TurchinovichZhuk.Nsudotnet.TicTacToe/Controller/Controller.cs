@@ -20,6 +20,7 @@ namespace TurchinovichZhuk.Nsudotnet.TicTacToe.Controller
 		private const int WinSmallField = 3;
 		private const int WrongSmallField = 4;
 		private const int WinGame = 5;
+		private const int GameOver = 6;
 
 		private int _lastStep = -1;
 		private int _littlePoint = -1;
@@ -54,13 +55,18 @@ namespace TurchinovichZhuk.Nsudotnet.TicTacToe.Controller
 					_view.WrongFieldMessage();
 					continue;
 				}
-
+				
 				if (result == WinSmallField || result == WinGame)
 				{
 					_view.SetLittleWinner(_xStep, _littlePoint);
 				}
 				_view.SetField(_model.GetField());
 				_view.PrintField();
+				if (result == GameOver)
+				{
+					_view.Lose();
+					break;
+				}
 				if (result == WinGame)
 				{
 					_view.Win(_xStep);
@@ -91,6 +97,7 @@ namespace TurchinovichZhuk.Nsudotnet.TicTacToe.Controller
 			}
 			
 			_lastStep = cellNumber;
+			_xStep = !_xStep;
 
 			_model.BigField.SmallFields[smallFieldNumber].Cells[cellNumber].CellState = _xStep ? CellState.X : CellState.O;
 			_model.BigField.SmallFields[smallFieldNumber].Full = _model.BigField.SmallFields[smallFieldNumber].IsFull();
@@ -114,7 +121,10 @@ namespace TurchinovichZhuk.Nsudotnet.TicTacToe.Controller
 				}
 			}
 
-			_xStep = !_xStep;
+			if (_model.Full())
+			{
+				return GameOver;
+			}
 
 			// Ход прошел успешно. Нет ни побед, ни ошибок
 			return Ok;

@@ -131,5 +131,11 @@ namespace TurchinovichZhuk.Nsudotnet.TicTacToe.View
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine(winner + " win! Congradulations!");
         }
+        
+        public void Lose()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Game over");
+        }
     }
 }
