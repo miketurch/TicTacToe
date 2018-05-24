@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TurchinovichZhuk.Nsudotnet.TicTacToe
 {
-	class Program
+	class TicTacToe
 	{
 		static void Main(string[] args)
 		{
@@ -17,7 +17,6 @@ namespace TurchinovichZhuk.Nsudotnet.TicTacToe
 			
 			Controller.Controller controller = new Controller.Controller(model, view);
 			controller.StartGame();
-			//controller.MakeStep(0, 2);
 		}
 	}
 }

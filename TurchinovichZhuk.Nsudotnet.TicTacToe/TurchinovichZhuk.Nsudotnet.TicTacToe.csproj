@@ -42,12 +42,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\Controller.cs" />
+    <Compile Include="Controller\GameState.cs" />
+    <Compile Include="Controller\Winner.cs" />
+    <Compile Include="Controller\Wins.cs" />
     <Compile Include="Model\BigField.cs" />
     <Compile Include="Model\Cell.cs" />
     <Compile Include="Model\CellState.cs" />
     <Compile Include="Model\Model.cs" />
     <Compile Include="Model\SmallField.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="TicTacToe.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\ConsoleView.cs" />
   </ItemGroup>
